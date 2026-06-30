@@ -2,7 +2,7 @@ package com.weg.gestao_biblioteca.model;
 
 import com.weg.gestao_biblioteca.model.enums.Categoria;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -33,4 +33,6 @@ public class Livro {
     private List<Autor> autores = new ArrayList<>();
 
 
+    public Livro(@NotNull(message = "Não pode ser nulo") @NotEmpty(message = "Não pode ser vazio") @NotBlank(message = "Não pode ser branco") String titulo, @NotNull(message = "Não pode ser nulo") @NotEmpty(message = "Não pode ser vazio") @NotBlank(message = "Não pode ser branco") String isbn, @Min(1) BigDecimal preco, @Past LocalDate localDate) {
+    }
 }

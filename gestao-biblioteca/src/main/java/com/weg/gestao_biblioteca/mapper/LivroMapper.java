@@ -1,6 +1,7 @@
 package com.weg.gestao_biblioteca.mapper;
 
 import com.weg.gestao_biblioteca.dto.LivroParaEditoraDto;
+import com.weg.gestao_biblioteca.dto.LivroRequestDto;
 import com.weg.gestao_biblioteca.dto.LivroResponseDto;
 import com.weg.gestao_biblioteca.dto.LivroSemAutor;
 import com.weg.gestao_biblioteca.model.Autor;
@@ -19,6 +20,15 @@ public class LivroMapper {
     public LivroMapper(@Lazy AutorMapper autorMapper, @Lazy EditoraMapper editoraMapper) {
         this.autorMapper = autorMapper;
         this.editoraMapper = editoraMapper;
+    }
+
+    public Livro toEntity(LivroRequestDto livroRequestDto){
+        return new Livro(
+                livroRequestDto.titulo(),
+                livroRequestDto.isbn(),
+                livroRequestDto.preco(),
+                livroRequestDto.dataPublicacao()
+        );
     }
 
 

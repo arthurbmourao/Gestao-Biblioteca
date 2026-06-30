@@ -12,6 +12,6 @@ public record LivroParaEditoraDto (
         String isbn,
         LocalDate dataPublicacao,
         Categoria categoria,
-        List<AutorResponseDto> autores
+        List<AutorSemLivroDto> autores
 ){
 }

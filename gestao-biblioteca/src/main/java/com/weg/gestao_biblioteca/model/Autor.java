@@ -22,5 +22,11 @@ public class Autor {
     private String nacionalidade;
     @ManyToMany
     private List<Livro> livros = new ArrayList<>();
+
+    public Autor(String nome, String nacionalidade, List<Livro> livros) {
+        this.nome = nome;
+        this.nacionalidade = nacionalidade;
+        this.livros = livros;
+    }
 }
 

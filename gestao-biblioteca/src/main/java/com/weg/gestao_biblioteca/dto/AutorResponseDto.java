@@ -6,6 +6,6 @@ public record AutorResponseDto(
         Long id,
         String nome,
         String nacionalidade,
-        List<LivroResponseDto> livros
+        List<LivroSemAutor> livros
 ) {
 }

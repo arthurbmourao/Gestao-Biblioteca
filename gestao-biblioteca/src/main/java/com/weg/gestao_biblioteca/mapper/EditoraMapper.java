@@ -2,6 +2,7 @@ package com.weg.gestao_biblioteca.mapper;
 
 import com.weg.gestao_biblioteca.dto.EditoraRequestDto;
 import com.weg.gestao_biblioteca.dto.EditoraResponseDto;
+import com.weg.gestao_biblioteca.dto.EditoraSemLivros;
 import com.weg.gestao_biblioteca.model.Editora;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -27,6 +28,13 @@ public class EditoraMapper {
                 editora.getLivros().stream().map(
                         livroMapper :: toLivroEditora
                 ).toList()
+        );
+    }
+
+    public EditoraSemLivros toEditoraSemLivro(Editora editora){
+        return new EditoraSemLivros(
+                editora.getNome(),
+                editora.getCnpj()
         );
     }
 }

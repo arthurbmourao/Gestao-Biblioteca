@@ -4,16 +4,14 @@ import com.weg.gestao_biblioteca.model.enums.Categoria;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
-public record LivroResponseDto (
+public record LivroSemAutor(
         Long id,
         String titulo,
         String isbn,
         BigDecimal preco,
         LocalDate dataPublicacao,
         Categoria categoria,
-        EditoraSemLivros editora,
-        List<AutorSemLivroDto> autores
+        EditoraSemLivros editora
 ) {
 }

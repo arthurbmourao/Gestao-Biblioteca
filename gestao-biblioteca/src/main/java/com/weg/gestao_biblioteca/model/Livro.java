@@ -33,6 +33,6 @@ public class Livro {
     private List<Autor> autores = new ArrayList<>();
 
 
-    public Livro(@NotNull(message = "Não pode ser nulo") @NotEmpty(message = "Não pode ser vazio") @NotBlank(message = "Não pode ser branco") String titulo, @NotNull(message = "Não pode ser nulo") @NotEmpty(message = "Não pode ser vazio") @NotBlank(message = "Não pode ser branco") String isbn, @Min(1) BigDecimal preco, @Past LocalDate localDate) {
+    public Livro(@NotNull(message = "Não pode ser nulo") @NotEmpty(message = "Não pode ser vazio") @NotBlank(message = "Não pode ser branco") String titulo, String isbn, @Min(1) BigDecimal preco, @Past LocalDate localDate) {
     }
 }

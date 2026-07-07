@@ -1,11 +1,9 @@
 package com.weg.gestao_biblioteca.mapper;
 
-import com.weg.gestao_biblioteca.dto.LivroParaEditoraDto;
-import com.weg.gestao_biblioteca.dto.LivroRequestDto;
-import com.weg.gestao_biblioteca.dto.LivroResponseDto;
-import com.weg.gestao_biblioteca.dto.LivroSemAutor;
+import com.weg.gestao_biblioteca.dto.*;
 import com.weg.gestao_biblioteca.model.Autor;
 import com.weg.gestao_biblioteca.model.Livro;
+import com.weg.gestao_biblioteca.projections.LivroProjection;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -26,6 +24,7 @@ public class LivroMapper {
         return new Livro(
                 livroRequestDto.titulo(),
                 livroRequestDto.isbn(),
+                livroRequestDto.categoria(),
                 livroRequestDto.preco(),
                 livroRequestDto.dataPublicacao()
         );
@@ -70,6 +69,13 @@ public class LivroMapper {
                 livro.getDataPublicacao(),
                 livro.getCategoria(),
                 editoraMapper.toEditoraSemLivro(livro.getEditora())
+        );
+    }
+
+    public LivrosBrasileiros toLivroBrasil(LivroProjection livroProjection){
+        return new LivrosBrasileiros(
+                livroProjection.getTitulo(),
+                livroProjection.getDataPublicacao()
         );
     }
 }

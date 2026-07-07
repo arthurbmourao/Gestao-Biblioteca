@@ -78,4 +78,9 @@ public class LivroController {
         return ResponseEntity.status(HttpStatus.OK).body(livroService.buscarLivrosBrasileiros());
     }
 
+    @PutMapping()
+    public ResponseEntity<LivroResponseDto> atualizarLivro(@RequestParam Long id, @RequestBody LivroRequestDto livroRequestDto){
+        return ResponseEntity.status(HttpStatus.OK).body(livroService.atualizarLivro(id, livroRequestDto));
+    }
+
 }

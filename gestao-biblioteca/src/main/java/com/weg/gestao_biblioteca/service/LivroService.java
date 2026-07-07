@@ -131,4 +131,22 @@ public class LivroService {
                 mapper :: toLivroBrasil
         ).toList();
     }
+
+    public LivroResponseDto atualizarLivro(Long id, LivroRequestDto requestDto){
+        Livro livro = repository.findById(id).orElseThrow(() -> new RuntimeException("Id inválio"));
+        Editora editora = editoraRepository.findById(id).orElseThrow(() -> new RuntimeException("Id inválido"));
+        List<Autor> autores = autorRepository.findAllById(requestDto.listaIds());
+
+        livro.setTitulo(requestDto.titulo());
+        livro.setEditora(editora);
+        livro.setTitulo(requestDto.titulo());
+        livro.setIsbn(requestDto.isbn());
+        livro.setCategoria(requestDto.categoria());
+        livro.setPreco(requestDto.preco());
+
+        livro = repository.save(livro);
+
+        return mapper.toResponse(livro);
+
+    }
 }
